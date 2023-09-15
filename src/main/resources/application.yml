@@ -1,0 +1,35 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  mqtt:
+    username: guest
+    password: guest
+    url: tcp://127.0.0.1:1883
+    client:
+      id: mqttId
+    default:
+      topic: topic,topic1
+    completionTimeout: 3000
+#  mail:
+#    host: smtp.gmail.com
+#    port: 465
+#    username: ksumatova178@gmail.com
+#    password: hayxdlobulrrcyop
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          ssl:
+#            enable: true
+#    protocol: smt-ps
+  jms:
+    pub-sub-domain: false
+    pubSubDomain: false
+
+#logging:
+#  level:
+#    root: DEBUG
