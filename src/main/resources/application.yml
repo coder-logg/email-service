@@ -1,34 +1,38 @@
 spring:
+#  boot:
+#    admin:
+#      mail:
+#        to: ${spring.mail.username}, test@yandex.ru
+#        from: ${spring.mail.username}
   rabbitmq:
     host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
     virtual-host: /
-  mqtt:
-    username: guest
-    password: guest
-    url: tcp://127.0.0.1:1883
-    client:
-      id: mqttId
-    default:
-      topic: topic,topic1
-    completionTimeout: 3000
-#  mail:
-#    host: smtp.gmail.com
-#    port: 465
-#    username: ksumatova178@gmail.com
-#    password: hayxdlobulrrcyop
-#    properties:
-#      mail:
-#        smtp:
-#          auth: true
-#          ssl:
-#            enable: true
-#    protocol: smt-ps
+    template:
+      routing-key: mailbox
+      exchange: amq.topic
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: aidarsinetov@gmail.com
+    password: qellwcocmlmrzstn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+    protocol: smtp
   jms:
     pub-sub-domain: false
-    pubSubDomain: false
+    listener:
+      acknowledge-mode: auto
+
+server:
+  port: 8090
+
 
 #logging:
 #  level:
